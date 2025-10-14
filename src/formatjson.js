@@ -36,6 +36,7 @@ export const formatFloJson = (data) => {
     );
     return {
       date: format(new Date(date), "yyyy-MM-dd"),
+      ...initialExtraFields,
       "bleeding.value": isInInterval ? "2" : "",
       "bleeding.exclude": isInInterval ? "FALSE" : "",
       ...extraFields,
@@ -45,12 +46,13 @@ export const formatFloJson = (data) => {
   return jsonToCSV(parsedData);
 };
 
-const extraFields = {
+const initialExtraFields = {
   "temperature.value": "",
   "temperature.exclude": "",
   "temperature.time": "",
   "temperature.note": "",
-
+};
+const extraFields = {
   "mucus.feeling": "",
   "mucus.texture": "",
   "mucus.value": "",

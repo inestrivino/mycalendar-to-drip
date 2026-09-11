@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- This file contains the HTML for the website's frontend -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,21 +11,21 @@
       href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <title>Flo to Drip</title>
+    <title>My Calendar to Drip</title>
   </head>
   <body>
     <div x-data="fileUpload">
-      <h1>Flo to Drip Converter</h1>
+      <h1>My Calendar to Drip Converter</h1>
       <h2>
-        Upload an exported flo file and you can download a CSV compatible with
-        drop
+        Upload an exported My Calendar file and you can download a CSV compatible with Open-Source period trakcer
+        <a href="https://dripapp.org/" target="_blank">Drip</a>.
       </h2>
       <a
-        href="https://help.flo.health/hc/en-us/articles/360054973811-How-do-I-export-my-data-"
-        >How to export flow data</a
+        href="/exportInstructions.html"
+        >How to export My Calendar data</a
       >
       <div id="FileUpload" class="file-upload">
-        <input type="file" x-on:change="onUpload" accept="application/JSON" />
+        <input type="file" x-on:change="onUpload" accept="application/json, text/plain, .json, .txt" />
         <template x-if="file !== null">
           <div>
             <div>

@@ -4,16 +4,10 @@ A simple tool that allows you to upload an export txt file from [My Calendar](ht
 
 ## Contributing
 
-Everyone is welcome to contribute.
-Please follow the instructions below to get a working local copy of the project. Create a pull request for code review when done.
+Everyone is welcome to contribute or report errors.
 
-## Using locally
-
-This app is designed to handle personal health data. The creator is not responsible for any data leaks caused by the website's hosting provider (Github Pages) or browser plugins the user may have installed. The website is completely client-side and does not store or send the data received anywhere (other than offering the user a CSV file to download at the end of conversion). The website is provided as a simple access option for non-tech-savvy users, however, for maximum privacy, installing and running this project locally is recommended.
-
-[NPM](https://www.npmjs.com/) must be installed in the user's computer.
-
-To run the website locally do:
+To obtain a local copy of this web application:
+[NPM](https://www.npmjs.com/) must be installed in the user's computer. Then in your terminal run the commands below.
 
 ```sh
 git clone git@github.com:inestrivino/mycalendar-to-drip.git
@@ -22,7 +16,20 @@ npm i
 npm run dev
 ```
 
-Then go to `localhost:5173` on your preferred navigator.
+Then go to `localhost:5173` on your preferred web browser.
+
+To add new features, make improvements, or report errors in conversion, please open an issue on the Github repository. When reporting errors in conversion, please provide the text line that was not properly converted and what you consider it should have converted to.
+
+## Conversion method
+
+My Calendar has features that Drip does not. This means that some data may be lost in translation, as there is no Drip equivalent value. This includes, among other values, symptom intensity.
+
+You can read about the conversion choices this app makes in [the conversion rules file](conversionrules.md).
+
+## Data collection notice
+
+This app is designed to handle personal health data. The website is completely client-side and does not store or send the data received anywhere. It does not contain any external calls (yes, including Google Fonts). The website is provided as a simple access option for non-tech-savvy users, however, for maximum privacy, installing and running this project locally is possible and recommended. Follow the instructions in the [Contributing](#contributing) section of this file to obtain a local copy.
+The website is hosted on Github Pages, which stores, for each visit, the IP address and time of visit. Running the project locally prevents this. If you have installed plugins in your web browser that log or keep information about your web visits, consider disabling them before procceeding.
 
 ## Authors and license
 

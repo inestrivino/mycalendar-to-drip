@@ -9,44 +9,64 @@
 body,
 html {
   margin: 0;
+  height: 100%;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.6;
   background-color: var(--pink);
   color: var(--white);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 
 main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-left: 10px;
-  margin-right: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
   width: 90%;
+  max-width: 650px;
+  margin: 40px auto;
+  box-sizing: border-box;
 }
 
 h1,
 h2 {
   text-align: center;
+  width: 100%;
 }
 
-h2 + a {
-  margin-bottom: 100px;
+h2+a {
+  margin-bottom: 40px;
   display: block;
+  text-align: center;
+  width: 100%;
+}
+
+p,
+ol {
+  text-align: left;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+ol {
+  padding-left: 20px;
+}
+
+li {
+  text-align: left;
+  margin-bottom: 0.5rem;
 }
 
 a {
   color: var(--yellow);
-  text-align: center;
   text-decoration: none;
 }
 
@@ -118,7 +138,11 @@ footer {
   margin-top: auto;
 }
 
-footer a{
+footer a {
   color: var(--grey);
   text-decoration: underline;
+}
+
+footer p {
+  text-align: center;
 }

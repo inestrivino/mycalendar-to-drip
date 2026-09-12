@@ -1,3 +1,5 @@
+// This is the main app controller. It captures the uploaded file, runs it through the translator, and triggers browser download
+
 import Alpine from "alpinejs";
 
 import { saveAs } from "file-saver";
@@ -11,9 +13,13 @@ const readFile = (file) =>
     reader.readAsText(file);
   });
 
+//initializes a reactive state object for 3 properties
 Alpine.data("fileUpload", () => ({
+  //uploaded user file
   file: null,
+  //generated csv file
   fileToDownload: false,
+  //boolean in case the conversion fails
   error: null,
 
   async onUpload({ target }) {
@@ -27,6 +33,7 @@ Alpine.data("fileUpload", () => ({
       this.error = true;
     }
   },
+  //force download of csv file as 'drip.csv'
   downloadCSV() {
     const blob = new Blob([this.fileToDownload], {
       type: "text/csv;charset=utf-8",

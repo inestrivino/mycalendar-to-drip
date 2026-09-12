@@ -1,3 +1,5 @@
+// This file contains the information to convert period-tracking data from one format to another. Main conversion logic.
+
 import { eachDayOfInterval, format, isWithinInterval } from "date-fns";
 import jsonexport from "jsonexport/dist";
 
@@ -52,6 +54,7 @@ const initialExtraFields = {
   "temperature.time": "",
   "temperature.note": "",
 };
+
 const extraFields = {
   "mucus.feeling": "",
   "mucus.texture": "",

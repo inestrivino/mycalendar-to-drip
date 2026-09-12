@@ -1,4 +1,4 @@
-# My Calendar to Drip.
+# My Calendar to Drip
 
 A simple tool that allows you to upload an export txt file from [My Calendar](https://play.google.com/store/apps/details?id=com.popularapp.periodcalendar) and converts it into a CSV file that can be read by Open-Source period tracker [drip](https://bloodyhealth.gitlab.io/).
 

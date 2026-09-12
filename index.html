@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <!-- This file contains the HTML for the website's frontend -->
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Calendar to Drip</title>
-  </head>
-  <body>
-    <div x-data="fileUpload">
-      <h1>My Calendar to Drip Converter</h1>
-      <h2>
-        Upload an exported My Calendar file and you can download a CSV compatible with Open-Source period trakcer
-        <a href="https://dripapp.org/" target="_blank">Drip</a>.
-      </h2>
-      <a
-        href="/exportInstructions.html"
-        >How to export My Calendar data</a
-      >
-      <div id="FileUpload" class="file-upload">
-        <input type="file" x-on:change="onUpload" accept="application/json, text/plain, .json, .txt" />
-        <template x-if="file !== null">
-          <div>
-            <div>
-              <span x-text="file.name">Uploading</span>
-            </div>
-          </div>
-        </template>
 
-        <template x-if="file === null">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Calendar to Drip</title>
+</head>
+
+<body>
+  <main x-data="fileUpload">
+    <h1>My Calendar to Drip Converter</h1>
+    <h2>
+      Upload an exported My Calendar file and you can download a CSV compatible with Open-Source period trakcer
+      <a href="https://dripapp.org/" target="_blank">Drip</a>.
+    </h2>
+    <a href="/exportInstructions.html">How to export My Calendar data</a>
+    <div id="FileUpload" class="file-upload">
+      <input type="file" x-on:change="onUpload" accept="application/json, text/plain, .json, .txt" />
+      <template x-if="file !== null">
+        <div>
           <div>
-            <p>Drag your files here or click in this area.</p>
-            <a href="javascript:void(0)">Select a file</a>
+            <span x-text="file.name">Uploading</span>
           </div>
-        </template>
-      </div>
-      <template x-if="error">
-        <p class="read-error">We could not read your uploaded file</p>
+        </div>
       </template>
-      <template x-if="fileToDownload">
-        <button @click="downloadCSV" class="download-button">
-          Download File
-        </button>
+
+      <template x-if="file === null">
+        <div>
+          <p>Drag your files here or click in this area.</p>
+          <a href="javascript:void(0)">Select a file</a>
+        </div>
       </template>
     </div>
+    <template x-if="error">
+      <p class="read-error">We could not read your uploaded file</p>
+    </template>
+    <template x-if="fileToDownload">
+      <button @click="downloadCSV" class="download-button">
+        Download File
+      </button>
+    </template>
+  </main>
 
-    <script type="module" src="/main.js"></script>
-    <link href="/style.css" rel="stylesheet" />
-  </body>
+  <footer>
+    <p>
+      Read the source code <a href="https://github.com/inestrivino/mycalendar-to-drip" target="_blank">on Github</a>.
+    </p>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+  <link href="/style.css" rel="stylesheet" />
+</body>
+
 </html>

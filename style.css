@@ -80,12 +80,14 @@ a {
   margin-bottom: 0.5rem;
   width: 20rem;
   text-align: center;
-  color: var(--white);
+  color: var(--pink);
   border: none;
   min-height: 60px;
   margin: auto;
   display: block;
   margin-top: 40px;
+  font-size: medium;
+  cursor: pointer;
 }
 
 .file-upload {

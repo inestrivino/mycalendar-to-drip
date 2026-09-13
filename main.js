@@ -1,45 +1,46 @@
 // This is the main app controller. It captures the uploaded file, runs it through the translator, and triggers browser download
 
 import Alpine from "alpinejs";
+import { formatMyCalendarTxt } from "./src/formatjson";
 
-import { saveAs } from "file-saver";
-import { formatFloJson } from "./src/formatjson";
-
-const readFile = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = (event) => resolve(event.target.result); // desired file content
-    reader.onerror = (error) => reject(error);
-    reader.readAsText(file);
-  });
-
-//initializes a reactive state object for 3 properties
-Alpine.data("fileUpload", () => ({
-  //uploaded user file
+Alpine.data('fileUpload', () => ({
   file: null,
-  //generated csv file
-  fileToDownload: false,
-  //boolean in case the conversion fails
-  error: null,
+  error: false,
+  fileToDownload: null,
 
-  async onUpload({ target }) {
+  //code to execute when a file has been uploaded
+  async onUpload(event) {
+    const uploadedFile = event.target.files[0];
+    if (!uploadedFile) return;
+
+    this.error = false;
+    this.file = uploadedFile;
+
     try {
-      this.file = target.files[0];
-      const json = await readFile(target.files[0]);
-      const readyData = await formatFloJson(JSON.parse(json));
-      this.fileToDownload = readyData;
-    } catch {
-      this.file = null;
+      //we extract the text
+      const textContent = await uploadedFile.text();
+      //call to the conversion logic to create the csv raw data
+      const csvResult = await formatMyCalendarTxt(textContent);
+      //we create a csv blob for the raw data
+      const blob = new Blob([csvResult], { type: 'text/csv;charset=utf-8;' });
+      //this csv blob is the file the user wants to download
+      this.fileToDownload = URL.createObjectURL(blob);
+    } catch (err) {
+      //if there is an error during any of the previous steps, make it known
+      console.error("Conversion failed:", err);
       this.error = true;
+      this.file = null;
+      this.fileToDownload = null;
     }
   },
-  //force download of csv file as 'drip.csv'
+
+  //helper function to make the file download into the users computer
   downloadCSV() {
-    const blob = new Blob([this.fileToDownload], {
-      type: "text/csv;charset=utf-8",
-    });
-    saveAs(blob, "drip.csv");
-  },
+    const link = document.createElement('a');
+    link.href = this.fileToDownload;
+    link.download = 'drip-data.csv';
+    link.click();
+  }
 }));
 
 Alpine.start();

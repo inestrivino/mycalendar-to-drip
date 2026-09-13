@@ -23,6 +23,7 @@ To add new features, make improvements, or report errors in conversion, please o
 ## Conversion method
 
 My Calendar has features that Drip does not. This means that some data may be lost in translation, as there is no Drip equivalent value. This includes, among other values, symptom intensity.
+There is also no conversion for medicine or contraceptive use yet, although it may be added in a future update of the application.
 
 You can read about the conversion choices this app makes in [the conversion rules file](conversionrules.md).
 

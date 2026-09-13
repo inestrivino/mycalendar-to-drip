@@ -7,6 +7,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Calendar to Drip</title>
+  <link href="./style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -16,7 +17,8 @@
       Upload an exported My Calendar file and you can download a CSV compatible with
       <a href="https://dripapp.org/" target="_blank">Drip</a>.
     </h2>
-    <p>Important note: Only English .txt export files are currently supported. For more information read <a href="/exportInstructions.html">How to export My Calendar data</a>.</p>
+    <p>Important note: Only English .txt export files are currently supported. For more information read <a
+        href="./exportInstructions.html">How to export My Calendar data</a>.</p>
     <div id="FileUpload" class="file-upload">
       <input type="file" @change="onUpload($event)" accept="application/json, text/plain, .json, .txt" />
       <template x-if="file !== null">
@@ -50,8 +52,8 @@
     </p>
   </footer>
 
-  <script type="module" src="/main.js"></script>
-  <link href="/style.css" rel="stylesheet" />
+  <script type="module" src="./main.js"></script>
+  
 </body>
 
 </html>

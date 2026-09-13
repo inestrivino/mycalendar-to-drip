@@ -34,7 +34,7 @@ The website is hosted on Github Pages, which stores, for each visit, the IP addr
 
 ## Authors and license
 
-This project is based on the original [flo-to-drip](https://github.com/SaraVieira/flo-to-drip) conversor my [Sara Viera](https://github.com/SaraVieira).
-A similar project already exists, called [period-tracker-to-drip](https://github.com/irrediated/period-tracker-to-drip), by [irrediated](https://github.com/irrediated). However, it does not seem to have left the draft phase and has not been maintained, prompting this project. No code from irrediated's project was used.
+This project is based on the original [flo-to-drip](https://github.com/SaraVieira/flo-to-drip) conversor by [Sara Viera](https://github.com/SaraVieira).
+A similar project already exists, called [period-tracker-to-drip](https://github.com/irrediated/period-tracker-to-drip), by [irrediated](https://github.com/irrediated). However, it is still in the draft phase and has not received updates in a few years, so I chose to try my hand at making my own version. No code from Irrediated's project was used.
 
 MIT License, see the included [License.md](License.md) file.
